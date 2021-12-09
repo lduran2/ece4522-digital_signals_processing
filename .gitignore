@@ -6,3 +6,9 @@
 
 # signals used for input, processed from output
 *.wav
+
+# MATLAB compiled functions
+*.p
+
+# input images for assignment 3
+/assignment3/*.png
