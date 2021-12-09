@@ -54,7 +54,7 @@
 
 \begin{document}
 
-\title{ECE 4522 MATLAB Assignment 2}
+\title{ECE 4522 MATLAB Assignment 3}
 
 \author{\IEEEauthorblockN{Leomar Dur\'an}
 \IEEEauthorblockA{\textit{College of Engineering} \\
@@ -108,6 +108,12 @@ After compressing the location signal,
         finally, the first end code 1-1-1 is located, and the next \(59\) values from and including that end point are cut out and decoded.
 \end{enumerate}
 
+\mintinline{bash}{./Ece4522/MatlabAssignment3/B2OFF.m} additionally, works on a rotated image. This is done by finding the angle of rotation \(\theta\) and taking its negative complement \(\theta - \frac\pi2\). Each coordinate in the matrix is then multiplied by \(R\brao\theta\), and the value of the original pixel coordinate is assigned to the new one. 
+
+\[
+    R\brao\theta = \begin{bmatrix} \cos\brao\theta & \sin\brao\theta \\* -\sin\brao\theta & \cos\brao\theta \end{bmatrix}.
+\]
+
 \section{Results}
 
 \subsection{Part B.1 Edge Detection and Location in 1-D Signals}
@@ -145,6 +151,15 @@ decodeMessage =
 
 These were the digits expected from the original barcode.
 
+\subsection{Part OFFv3. Bar Code Rotation}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{unrotV3.png}
+    \figcaption{Unrotated image from OFFv3.png. This is the image created in the first of part OFFv3.}
+    \label{fig:rotation}
+\end{figure}
+
 \section{Insights}
 
 \subsection{Part B.1 Edge Detection and Location in 1-D Signals}
@@ -164,5 +179,7 @@ Now we can justify that the total width of a signal is \(95\) times the base wid
 We have implemented and tested a backward difference system. Then we have shown how two backward difference systems can be used to implement an edge detection system, and further used that edge detection system to help decode a barcode.
 
 As the resulting value of \mintinline{matlab}{decodeMessage} shows, we were successfully able to find the encoded message in the photograph of the barcode.
+
+In Part OFFv3, we were able to recreate the unrotated image. However, it seems that the quality is off because it is not good enough to decode using the same algorithm. Maybe another filter needs to be applied such as sharpening.
 
 \end{document}
