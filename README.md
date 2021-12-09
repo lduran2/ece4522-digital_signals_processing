@@ -34,7 +34,7 @@ edge detection, threshold, barcode, encode, decode
 
 The source code for the reports of each assignment in
 L<sup>**A**</sup>T<sub>**E**</sub>X. The IEEE Conference Template
-(2019)<sup><a href='#ref-1'>[1]</a></sup> is used.
+(2019)<sup>[`[1]`](#ref-1)</sup> is used.
 
 ## References
 
