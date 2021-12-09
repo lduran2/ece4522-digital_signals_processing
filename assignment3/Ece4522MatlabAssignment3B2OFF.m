@@ -2,11 +2,14 @@
 % Bar Code Detection, Rotation and Decoding
 %
 % By: Leomar Duran <https://github.com/lduran2/>
-% When: 2021-11-04t03:12
+% When: 2021-11-11t16:51
 % For: ECE 4522
 % Version: 3.0.0
 %
 % CHANGELOG:
+%     v3.0.0 - 2021-11-11t16:51
+%         attempt at correcting and decoding a rotated barcode image
+%
 %     v2.3.0 - 2021-11-04t03:12
 %         calculated the encoded message, properly decoded it
 %
