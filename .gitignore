@@ -1,2 +1,5 @@
 # signals used for input, processed from output
 *.wav
+
+# MATLAB autosaves
+*.asv
