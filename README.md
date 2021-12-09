@@ -33,8 +33,8 @@ edge detection, threshold, barcode, encode, decode
 ## [`/doc/`](doc)
 
 The source code for the reports of each assignment in
-L<sup>A</sup>T<sub>E</sub>X. The IEEE Conference Template (2019)<!--
---><sup>[&lsqb;1&rsqb;](#ref-1)</sup> is used.
+L<sup>**A**</sup>T<sub>**E**</sub>X. The IEEE Conference Template
+(2019)<sup>[[1]](#ref-1)</sup> is used.
 
 ## References
 
