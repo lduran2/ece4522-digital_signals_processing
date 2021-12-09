@@ -1,5 +1,8 @@
 # MATLAB autosaves
 *.asv
 
+# project templates and input files
+*.zip
+
 # signals used for input, processed from output
 *.wav
