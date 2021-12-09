@@ -7,6 +7,10 @@
 % Version: 1.4.1
 %
 % CHANGELOG:
+%     v1.4.2 - 2021-12-08t19:08
+%         playing audio subsequently, constants, commented to B.4
+%             parameters
+%
 %     v1.4.1 - 2021-10-14t07:15
 %         even vertical axes for figure 2
 %
@@ -32,7 +36,11 @@
 %         template from part A
 clear;
 
-showPlots = true;  % whether to show the plots (for convenience)
+% constants
+SHOW_PLOTS = true;  % whether to show the plots (for convenience)
+PLAY_SOUNDS = 0b11; % how to play sounds
+                    % (bit 0 = play input signal)
+                    % (bit 1 = play output signal)
 
 %% part B.1
 M = 100;
@@ -41,7 +49,7 @@ x = 256*(rem(nn,50)<10); %<--Input signal
 h = [1, -0.9]; %<--Filter impulse response
 w = conv(h, x); %<--Compute the output
 
-if (showPlots)
+if (SHOW_PLOTS)
     % Plot both the input and output signals on the same figure, using
     % `subplot` command.
     figure(1);
@@ -77,7 +85,7 @@ e = abs(y(nn+1) - x(nn+1)); % the error (difference) between y[n] and x[n]
 
 y((23:32)+1) = y((23:32)+1);
 
-if (showPlots)
+if (SHOW_PLOTS)
     % Plot both the input and output signals on the same figure, using
     % `subplot` command.
     % Put the stem plots in side-by-side figures for comparison-use a
@@ -120,10 +128,12 @@ worstCaseErr = max(e((0:50)+1))
 %% part B.4 An Echo System
 
 % parameters
-clear
-r = 0.9;
-P = 1600;
-playSounds = 0;
+clear -regex [a-z]; % clear any variables, keeping constants
+                    % (constant names have no lowercase letters)
+%
+r = 0.9;        % gain of the echo
+P = 0.2*8000;   %[samples] echo delay = P [t] * sample requency FS
+t_pad = 2;  %[s] extra wait between playing signals
 
 % Implement the echo system in eq. (5) with the values of r and P
 % determined in part (a).
@@ -133,15 +143,21 @@ h(P + 1) = r;
 
 % read and test the audio file
 [Y,FS] = audioread('speech8k.wav');
-if (playSounds == 1)
+if (bitand(PLAY_SOUNDS, 1))
     soundsc(Y);
 end
 
 % apply and test the echo system
 Z = conv(h,Y')';
-if (playSounds == 2)
+if (bitand(PLAY_SOUNDS, 2))
+    % if also playing the input signal
+    if (bitand(PLAY_SOUNDS, 1))
+        % then wait for the audio to finish first
+        duration_Y = (size(Y,1)/FS);
+        pause(duration_Y + t_pad);
+    end % if (bitand(PLAY_SOUNDS, 1))
     soundsc(Z);
-end
+end % if (bitand(PLAY_SOUNDS, 2))
 
 % Save your result as a .wav file.
 audiowrite('speech8k-echo.wav',Z,FS);
