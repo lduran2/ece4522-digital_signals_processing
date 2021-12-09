@@ -1,7 +1,7 @@
 # `ece4522-digital_signals_processing`
 MATLAB projects for Digital Signals Processing (ECE 4522).
 
-## <a name='assignment2'></a> `/assignment2/`
+## <a name='assignment2'></a> `[/assignment2/](assignment2)`
 
 Introduces various types of systems and provides hands on experience
 with the impulse response. It cements the concept of convolution using
@@ -16,7 +16,7 @@ convolution, finite-duration impulse response, FIR, discrete-time
 system, echo system, restoration system, digital signal processing,
 cascading systems
 
-## <a name='assignment3'></a> `/assignment3/`
+## <a name='assignment3'></a> `[/assignment3/](assignment3)`
 
 Introduces the backward difference system, and uses cascading to
 produce an edge detector. This works because the difference of the
@@ -30,11 +30,11 @@ a photograph of a barcode to prepare it for decoding.
 convolution, filter, backward difference system, difference system,
 edge detection, threshold, barcode, encode, decode
 
-## <a name='doc'></a> `/doc/`
+## <a name='doc'></a> `[/doc/](doc)`
 
 The source code for the reports of each assignment in
 L<sup>A</sup>T<sub>E</sub>X. The IEEE Conference Template (2019)<sup
->[[1]](#references)</sup> is used.
+>[&lsqb;1]](#references)</sup> is used.
 
 ## <a name='references'></a> References
 
